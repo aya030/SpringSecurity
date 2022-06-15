@@ -7,5 +7,5 @@ import com.example.demo.domain.UserModel;
 
 @Mapper
 public interface UserMapper {
-    public UserModel certificate(@Param("id") String id);
+    public UserModel certificate(@Param("username") String username);
 }

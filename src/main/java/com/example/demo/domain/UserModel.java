@@ -12,6 +12,7 @@ public class UserModel implements UserDetails{
 	private static final long serialVersionUID = 1L;
 	private String username;
     private String password;
+    private String authority;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -50,4 +51,10 @@ public class UserModel implements UserDetails{
         //ユーザアカウントが無効になっていないか
         return true;
     }
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 }

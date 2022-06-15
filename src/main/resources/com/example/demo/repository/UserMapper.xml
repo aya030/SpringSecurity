@@ -5,6 +5,7 @@
 
 <mapper namespace="com.example.demo.repository.UserMapper">
     <select id="certificate" resultType="com.example.demo.domain.UserModel">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT * FROM user WHERE username = #{username}
     </select>
 </mapper>
+
