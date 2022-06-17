@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.form.UserForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,32 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.form.UserForm;
-import com.example.demo.service.UserService;
-
 @Controller
 public class UserController {
 
-	private final UserService userService;
+  /* Top */
+  @GetMapping("/edit")
+  public String index(UserForm userForm, Model model) {
 
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
+    model.addAttribute("userForm", userForm);
+    return "edit";
+  }
 
-	/* Top */
-	@GetMapping("/edit")
-	public String index(UserForm userForm, Model model) {
-
-		model.addAttribute("userForm", userForm);
-		return "edit";
-	}
-
-	@PostMapping("/edit")
-	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
-
-		userService.insertOne(userForm);
-		return "redirect:/items/index";
-	}
+  @PostMapping("/edit")
+  public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
+    // do nothing
+    return "redirect:/items/index";
+  }
 
 }
 
