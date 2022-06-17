@@ -27,7 +27,7 @@ public class SecurityConfig {
     ).authorizeHttpRequests(authorize -> authorize
         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
         .mvcMatchers("/").permitAll()
-        .mvcMatchers("/admin").hasRole("USER")
+        .mvcMatchers("/admin").hasRole("ADMIN")
         .anyRequest().authenticated()
     );
     return http.build();
