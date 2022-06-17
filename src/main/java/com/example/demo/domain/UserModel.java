@@ -15,7 +15,7 @@ public class UserModel implements UserDetails {
 	private String username;
 	private String password;
 	private String authority;
-	Collection<? extends GrantedAuthority> getAuthorities;
+	private Collection<? extends GrantedAuthority> getAuthorities;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -68,3 +68,4 @@ public class UserModel implements UserDetails {
 		this.authority = authority;
 	}
 }
+
