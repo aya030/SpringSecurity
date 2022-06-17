@@ -30,6 +30,7 @@ public class SecurityConfig{
 						        .requestMatchers(PathRequest.toStaticResources()
 						        .atCommonLocations()).permitAll()
 								.mvcMatchers("/").permitAll()
+								.mvcMatchers("/edit").permitAll()
 								.mvcMatchers("/admin").hasRole("ADMIN")
 								.anyRequest()
 								.authenticated()
@@ -42,6 +43,7 @@ public class SecurityConfig{
 		return new BCryptPasswordEncoder();
 	}
 
+//　インメモリ認証用
 //	@Bean
 //	public UserDetailsService userDetailsService() throws Exception {
 //		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
