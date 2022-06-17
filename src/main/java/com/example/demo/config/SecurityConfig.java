@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -35,15 +35,15 @@ public class SecurityConfig {
 
   @Bean
   public PasswordEncoder passwordEncoder() {
-    return NoOpPasswordEncoder.getInstance();
+    return new BCryptPasswordEncoder();
   }
 
   //　インメモリ認証用
   @Bean
   public UserDetailsService userDetailsService() throws Exception {
     InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-    manager.createUser(User.withUsername("admin").password("password1").roles("ADMIN").build());
-    manager.createUser(User.withUsername("user").password("password2").roles("USER").build());
+    manager.createUser(User.withUsername("admin").password(passwordEncoder().encode("password1")).roles("ADMIN").build());
+    manager.createUser(User.withUsername("user").password(passwordEncoder().encode("password2")).roles("USER").build());
     return manager;
   }
 }
