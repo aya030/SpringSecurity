@@ -12,29 +12,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
-public class SecurityConfig{
-	
+public class SecurityConfig {
+
 	@Autowired
 	UserDetailsService userDetailsService;
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.formLogin(login -> login
-				                .loginProcessingUrl("/login").loginPage("/login")
-				                .defaultSuccessUrl("/")
-				                .failureUrl("/login?error").permitAll()
-				                .usernameParameter("username").passwordParameter("password")
-			).logout(logout -> logout
-						        .logoutSuccessUrl("/")
-			).authorizeHttpRequests(authorize -> authorize
-						        .requestMatchers(PathRequest.toStaticResources()
-						        .atCommonLocations()).permitAll()
-								.mvcMatchers("/").permitAll()
-								.mvcMatchers("/edit").permitAll()
-								.mvcMatchers("/admin").hasRole("ADMIN")
-								.anyRequest()
-								.authenticated()
-		);
+		http.formLogin(login -> login.loginProcessingUrl("/login").loginPage("/login").defaultSuccessUrl("/")
+				.failureUrl("/login?error").permitAll().usernameParameter("username").passwordParameter("password"))
+				.logout(logout -> logout.logoutSuccessUrl("/")).authorizeHttpRequests(
+						authorize -> authorize.requestMatchers(PathRequest.toStaticResources().atCommonLocations())
+								.permitAll().mvcMatchers("/").permitAll().mvcMatchers("/edit").permitAll()
+								.mvcMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated());
 		return http.build();
 	}
 
@@ -54,3 +44,4 @@ public class SecurityConfig{
 //		return manager;
 //	}
 }
+

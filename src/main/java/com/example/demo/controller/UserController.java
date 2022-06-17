@@ -14,25 +14,26 @@ import com.example.demo.service.UserService;
 @Controller
 public class UserController {
 
-private final UserService userService;
+	private final UserService userService;
 
-public UserController(UserService userService) {
-	this.userService = userService;
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
+
+	/* Top */
+	@GetMapping("/edit")
+	public String index(UserForm userForm, Model model) {
+
+		model.addAttribute("userForm", userForm);
+		return "edit";
+	}
+
+	@PostMapping("/edit")
+	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
+
+		userService.insertOne(userForm);
+		return "redirect:/items/index";
+	}
+
 }
 
-/* Top */
-@GetMapping("/edit")
-public String index(UserForm userForm, Model model) {
-
-	model.addAttribute("userForm",userForm);
-	return "edit";
-}
-
-@PostMapping("/edit")
-public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
-
-	userService.insertOne(userForm);
-	return "redirect:/items/index";
-}
-
-}
