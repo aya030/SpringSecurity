@@ -48,3 +48,4 @@
         id = #{id}  
     </delete>
 </mapper>
+

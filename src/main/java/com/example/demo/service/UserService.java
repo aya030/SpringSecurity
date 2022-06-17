@@ -24,12 +24,11 @@ public class UserService implements UserDetailsService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
-	//  認証
+	// 認証
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("test" + userMapper.certificate(username,userModel.getAuthority()));
+
 		return userMapper.certificate(username, userModel.getAuthority());
-//		return userMapper.certificate(username);
 	}
 
 	// 新規登録
@@ -61,3 +60,4 @@ public class UserService implements UserDetailsService {
 	}
 
 }
+

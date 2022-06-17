@@ -12,7 +12,6 @@ import com.example.demo.form.UserForm;
 @Mapper
 public interface UserMapper {
     public UserModel certificate(@Param("username") String username, @Param("authority") String authority);
-//	public UserModel certificate(@Param("username") String username);
     
     //1件検索
 	public Optional<UserForm> findById(Integer id);
@@ -29,3 +28,4 @@ public interface UserMapper {
 	// 削除
 	public Integer deleteOne(int id);
 }
+
