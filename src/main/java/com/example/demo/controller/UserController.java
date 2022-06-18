@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.UserForm;
-import com.example.demo.service.UserService;
+//import com.example.demo.service.UserService;
 
 @Controller
 public class UserController {
 
-	private final UserService userService;
-
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
+//	private final UserService userService;
+//
+//	public UserController(UserService userService) {
+//		this.userService = userService;
+//	}
 
 	/* Top */
 	@GetMapping("/edit")
@@ -31,7 +31,7 @@ public class UserController {
 	@PostMapping("/edit")
 	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
 
-		userService.insertOne(userForm);
+//		userService.insertOne(userForm);
 		return "redirect:/items/index";
 	}
 

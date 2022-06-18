@@ -68,3 +68,4 @@ public class UserModel implements UserDetails {
 		this.authority = authority;
 	}
 }
+
