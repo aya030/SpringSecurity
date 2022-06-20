@@ -1,8 +1,11 @@
 package com.example.demo.domain;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
@@ -14,13 +17,7 @@ public class UserModel implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
-	private String authority;
-	Collection<? extends GrantedAuthority> getAuthorities;
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return getAuthorities;
-	}
+	private String roles;
 
 	@Override
 	public String getPassword() {
@@ -30,8 +27,16 @@ public class UserModel implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		// ユーザー名（今回はid）を返す。
+		// ユーザー名を返す。
 		return username;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 
 	@Override
@@ -60,12 +65,10 @@ public class UserModel implements UserDetails {
 		return true;
 	}
 
-	public String getAuthority() {
-		return authority;
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		
+		return Arrays.stream(getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 	}
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
 }
-
