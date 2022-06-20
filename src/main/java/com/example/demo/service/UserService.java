@@ -10,26 +10,23 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.domain.UserModel;
 import com.example.demo.form.UserForm;
 import com.example.demo.repository.UserMapper;
 
 @Service
 public class UserService implements UserDetailsService {
+
 	@Autowired
 	private UserMapper userMapper;
-	@Autowired
-	private UserModel userModel;
 
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
-	//  認証
+	// 認証
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("test" + userMapper.certificate(username,userModel.getAuthority()));
-		return userMapper.certificate(username, userModel.getAuthority());
-//		return userMapper.certificate(username);
+	
+		return userMapper.certificate(username);
 	}
 
 	// 新規登録
@@ -51,8 +48,8 @@ public class UserService implements UserDetailsService {
 	}
 
 	// 更新
-	public void updateOne(Integer id, String username, String password, String authorities) {
-		userMapper.updateOne(id, username, password, authorities);
+	public void updateOne(Integer id, String username, String password, String roles) {
+		userMapper.updateOne(id, username, password, roles);
 	}
 
 	// 削除

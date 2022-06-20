@@ -32,8 +32,9 @@ public class UserController {
 	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
 
 		userService.insertOne(userForm);
-		return "redirect:/items/index";
+		return "redirect:/index";
 	}
-
 }
+
+
 

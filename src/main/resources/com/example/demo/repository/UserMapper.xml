@@ -24,13 +24,13 @@
         id,
         username, 
         password, 
-        authority
+        roles
       ) 
       VALUES (
          #{id},
          #{username}, 
          #{password}, 
-         #{authority}
+         #{roles}
       )
     </insert>
 	<update id="updateOne">
@@ -38,7 +38,7 @@
      SET     id = #{id},
              username = {username}, 
              password = #{password}, 
-             authority = #{authority}
+             roles = #{roles}
      WHERE   id = #{id}
     </update>
 	<delete id="deleteOne">
