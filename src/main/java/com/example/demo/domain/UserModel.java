@@ -1,8 +1,7 @@
 package com.example.demo.domain;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,6 +17,7 @@ public class UserModel implements UserDetails {
 	private String username;
 	private String password;
 	private String roles;
+	Collection<? extends GrantedAuthority> getAuthorities;
 
 	@Override
 	public String getPassword() {
@@ -67,8 +67,16 @@ public class UserModel implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
-		return Arrays.stream(getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+		// 認証とロールの付与
+		Collection<GrantedAuthority> authorityList = new ArrayList<>();
+		if ("ADMIN".equals(roles)) {
+			authorityList.add(new SimpleGrantedAuthority("ADMIN"));
+		} else if ("USER".equals(roles)) {
+			authorityList.add(new SimpleGrantedAuthority("USER"));
+		}
+		return authorityList;
 	}
-
+	
 }
+
+
