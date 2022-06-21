@@ -34,6 +34,13 @@ public class UserController {
 		userService.insertOne(userForm);
 		return "redirect:/index";
 	}
-	
+
+	@GetMapping("/admin")
+	public String admin(UserForm userForm, Model model) {
+
+		model.addAttribute("userList", userService.getUserList());
+		return "admin";
+	}
+
 }
 

@@ -10,6 +10,29 @@
 <body>
 	<h1>adminpage</h1>
 
+	<div th:if="${userList} !=null">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>ユーザー名</th>
+				<th>パスワード</th>
+				<th>管理者権限</th>
+				<th>削除</th>
+			</tr>
+			<tr th:each="user:${userList}" th:object="${user}">
+				<td th:text="*{id}">id</td>
+				<td th:text="*{username}">ユーザー名</td>
+				<td th:text="*{password}">パスワード</td>
+				<td th:text="*{roles}">管理者権限</td>
+				<td class="c-table__lasttd">
+					<form th:method="post" th:action="@{/delete/id={id}(id=*{id})}">
+						<button class="c-button__delete">削除</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
 </body>
 
 </html>
