@@ -14,20 +14,25 @@
 			<input type="submit" value="Sign Out" />
 		</form>
 	</header>
-	<div class="l-user" th:if="${userList} !=null">
-		<table class="p-user__table">
-			<tr>
-				<th>ID</th>
-				<th>ユーザー名</th>
-			</tr>
-			<tr th:each="user:${userList}" th:object="${user}">
-				<td th:text="*{id}">id</td>
-				<td th:text="*{username}">ユーザー名</td>
-			</tr>
-		</table>
+	<div class="l-user">
+		<h2>userpage</h2>
+		<p>ログインしたユーザー全員が入れるページ</p>
+		<div class="l-user__list" th:if="${userList} !=null">
+			<table class="p-user__table">
+				<tr>
+					<th>ID</th>
+					<th>ユーザー名</th>
+				</tr>
+				<tr th:each="user:${userList}" th:object="${user}">
+					<td th:text="*{id}">id</td>
+					<td th:text="*{username}">ユーザー名</td>
+				</tr>
+			</table>
 
-		<a class="c-button__user" th:href="@{/hello}">Home</a>
+			<a class="c-button__user" th:href="@{/hello}">Home</a>
+		</div>
 	</div>
 </body>
 
 </html>
+
