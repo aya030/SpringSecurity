@@ -1,14 +1,38 @@
-	<div th:if="${userList} !=null">
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>ユーザー名</th>
-			</tr>
-			<tr th:each="user:${userList}" th:object="${user}">
-				<td th:text="*{id}">id</td>
-				<td th:text="*{username}">ユーザー名</td>
-			</tr>
-		</table>
-		
-		<a th:href="@{/hello}">Home</a>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Hello World!</title>
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-user">
+		<h2>userpage</h2>
+		<p>ログインしたユーザー全員が入れるページ</p>
+		<div class="l-user__list" th:if="${userList} !=null">
+			<table class="p-user__table">
+				<tr>
+					<th>ID</th>
+					<th>ユーザー名</th>
+				</tr>
+				<tr th:each="user:${userList}" th:object="${user}">
+					<td th:text="*{id}">id</td>
+					<td th:text="*{username}">ユーザー名</td>
+				</tr>
+			</table>
+
+			<a class="c-button__user" th:href="@{/hello}">Home</a>
+		</div>
 	</div>
+</body>
+
+</html>
+

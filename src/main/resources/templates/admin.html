@@ -8,33 +8,41 @@
 </head>
 
 <body>
-	<h1>adminpage</h1>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-admin">
+		<h2>adminpage</h2>
+		<p>ADMINの権限を持ったユーザーのみが入れるページ</p>
 
-	<div th:if="${userList} !=null">
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>ユーザー名</th>
-				<th>パスワード</th>
-				<th>管理者権限</th>
-				<th>削除</th>
-			</tr>
-			<tr th:each="user:${userList}" th:object="${user}">
-				<td th:text="*{id}">id</td>
-				<td th:text="*{username}">ユーザー名</td>
-				<td th:text="*{password}">パスワード</td>
-				<td th:text="*{roles}">管理者権限</td>
-				<td class="c-table__lasttd">
-					<form th:method="post" th:action="@{/delete/id={id}(id=*{id})}">
-						<button class="c-button__delete">削除</button>
-					</form>
-				</td>
-			</tr>
-		</table>
+		<div class="l-admin__list" th:if="${userList} !=null">
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>ユーザー</th>
+					<th>パスワード</th>
+					<th>権限</th>
+					<th>削除</th>
+				</tr>
+				<tr th:each="user:${userList}" th:object="${user}">
+					<td th:text="*{id}">id</td>
+					<td th:text="*{username}">ユーザー名</td>
+					<td th:text="*{password}">パスワード</td>
+					<td th:text="*{roles}">管理者権限</td>
+					<td class="c-table__lasttd">
+						<form th:method="post" th:action="@{/delete/id={id}(id=*{id})}">
+							<button class="c-button__delete">削除</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<a class="c-button__user" th:href="@{/hello}">Home</a>
 	</div>
-	
-	<a th:href="@{/hello}">Home</a>
-
 </body>
 
 </html>

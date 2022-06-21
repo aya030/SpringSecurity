@@ -26,11 +26,11 @@ public class SecurityConfig {
 				.failureUrl("/login?error").permitAll()
 				.usernameParameter("username").passwordParameter("password"))
 			.logout(logout -> logout
-		    	.logoutSuccessUrl("/"))
+		    	.logoutSuccessUrl("/login"))
 			.authorizeHttpRequests(authorize -> authorize
 		    	.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 		    	.mvcMatchers("/").permitAll()
-		    	.mvcMatchers("/edit").permitAll()
+		    	.mvcMatchers("/register").permitAll()
 		    	.mvcMatchers("/admin").hasAuthority("ROLE_ADMIN")
 		    	.anyRequest().authenticated());
 		return http.build();

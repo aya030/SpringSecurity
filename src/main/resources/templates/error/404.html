@@ -8,10 +8,17 @@
 </head>
 
 <body>
-
-	<div>404 Not Found</div>
-	<p>ページが見つかりません</p>
-	<a th:href="@{/hello}">Home</a>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-error">
+		<h2>404 Not Found</h2>
+		<p>ページが見つかりません</p>
+		<a class="c-button__error" th:href="@{/hello}">Home</a>
+	</div>
 
 </body>
 
