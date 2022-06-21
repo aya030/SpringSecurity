@@ -17,8 +17,8 @@
 	<div class="l-hello">
 		<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 
-		<a class="c-button__hello" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/user}">ユーザー一覧ページへ</a>
-		<p class="p-hello__description">ADMIN権限を持っているUSERのみ表示されます</p>
+		<a class="c-button__hello" th:href="@{/user}">ユーザー一覧ページへ</a>
+		<p class="p-hello__description" sec:authorize="hasAuthority('ROLE_ADMIN')">ADMIN権限を持っているUSERのみ表示されます</p>
 		<a class="c-button__hello" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
 	</div>
 	
