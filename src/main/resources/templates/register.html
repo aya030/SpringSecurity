@@ -8,19 +8,33 @@
 </head>
 
 <body>
-	　　 <h1>Create</h1>
-	<div th:if="${param.logout}">
-		ログアウトしました
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<p class="p-header__menu"><a th:href="@{/login}">Login</a></p>
+	</header>
+	<div class="l-login">
+		<div class="p-login__box">
+			<div class="p-login__box-left register">
+				<p>Hello<br>Welcome</p>
+			</div>
+			<div class="p-login__box-right">
+				<h2>CREATE</h2>
+				<p class="p-login__message" th:if="${param.error}">
+					* Wrong username or password
+				</p>
+				<p class="p-login__message" th:if="${param.logout}">
+					* ログアウトしました
+				</p>
+				<form th:action="@{/edit}" method="post" th:object=${userForm}>
+					<div class="p-login__input"><label>User Name</label><input type="text" name="username" th:field="*{username}" /></div>
+					<div class="p-login__input"><label>Password</label><input type="password" name="password" th:field="*{password}" /></div>
+					<div class="p-login__input"><label>Authority</label><input type="text" name="roles" th:field="*{roles}" /></div>
+					<div><input class="c-button__signin" type="submit" value="Create" /></div>
+				</form>
+				<a class="c-button__register" th:href="@{/login}">Have an account？</a>
+			</div>
+		</div>
 	</div>
-	<form th:action="@{/edit}" method="post" th:object=${userForm}>
-		<div><label> User Name : <input type="text" name="username" th:field="*{username}" /> </label></div>
-		<div><label> Password: <input type="password" name="password" th:field="*{password}" /> </label></div>
-		<div><label> Authority: <input type="text" name="roles" th:field="*{roles}" /> </label></div>
-		<div><input type="submit" value="Create" /></div>
-	</form>
-
-	<a href="${/login}">ログイン画面に戻る</a>
 </body>
 
 </html>
-

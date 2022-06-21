@@ -78,6 +78,9 @@ a {
 	text-align: center;
 	font-size: 40px;
 }
+.p-login__box-left.register p {
+	margin-top: 200px;
+}
 @media screen and (max-width: 600px) {
 	.p-login__box-left p {
 	margin-top: 0;
