@@ -26,9 +26,18 @@
 					* ログアウトしました
 				</p>
 				<form th:action="@{/register}" method="post" th:object=${userForm}>
-					<div class="p-login__input"><label>User Name</label><input type="text" name="username" th:field="*{username}" /></div>
-					<div class="p-login__input"><label>Password</label><input type="password" name="password" th:field="*{password}" /></div>
-					<div class="p-login__input"><label>Authority</label><input type="text" name="roles" th:field="*{roles}" /></div>
+					<div class="p-login__input">
+						<label>User Name</label><input type="text" name="username" th:field="*{username}" />
+						<span th:errors="*{username}"></span>
+					</div>
+					<div class="p-login__input">
+						<label>Password</label><input type="password" name="password" th:field="*{password}" />
+						<span th:errors="*{password}"></span>
+					</div>
+					<div class="p-login__input">
+						<label>Authority</label><input type="text" name="roles" th:field="*{roles}" />
+						<span th:errors="*{roles}"></span>
+					</div>
 					<div><input class="c-button__signin" type="submit" value="Create" /></div>
 				</form>
 				<a class="c-button__register" th:href="@{/login}">Have an account？</a>
@@ -38,4 +47,3 @@
 </body>
 
 </html>
-

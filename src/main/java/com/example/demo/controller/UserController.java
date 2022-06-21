@@ -32,8 +32,13 @@ public class UserController {
 	@PostMapping("/register")
 	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
 
-		userService.insertOne(userForm);
-		return "redirect:/index";
+		if (result.hasErrors()) {
+			model.addAttribute("userForm", userForm);
+			return "/register";
+		} else {
+			userService.insertOne(userForm);
+			return "redirect:/login";
+		}
 	}
 
 	/* ユーザー一覧ページ */
