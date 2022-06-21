@@ -8,12 +8,15 @@
 </head>
 
 <body>
-	<h1>Welcome!</h1>
-
-	<p><a th:href="@{/hello}">Top画面へ</a></p>
-	<p><a th:href="@{/login}">ログイン画面へ</a></p>
-
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<p class="p-header__menu"><a th:href="@{/login}">Login</a></p>
+	</header>
+	<div class="l-index">
+		<h1>Welcome<br>[[${#httpServletRequest.remoteUser}]]！</h1>
+		<p>ログイン後のTopページです</p>
+		<a class="c-button__page" th:href="@{/hello}">to Hello</a>
+	</div>
 </body>
 
 </html>
-
