@@ -34,7 +34,6 @@ public class UserController {
 		userService.insertOne(userForm);
 		return "redirect:/index";
 	}
+	
 }
-
-
 

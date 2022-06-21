@@ -17,7 +17,6 @@ public class UserModel implements UserDetails {
 	private String username;
 	private String password;
 	private String roles;
-	Collection<? extends GrantedAuthority> getAuthorities;
 
 	@Override
 	public String getPassword() {
@@ -70,13 +69,12 @@ public class UserModel implements UserDetails {
 		// 認証とロールの付与
 		Collection<GrantedAuthority> authorityList = new ArrayList<>();
 		if ("ADMIN".equals(roles)) {
-			authorityList.add(new SimpleGrantedAuthority("ADMIN"));
+			authorityList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		} else if ("USER".equals(roles)) {
-			authorityList.add(new SimpleGrantedAuthority("USER"));
+			authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
 		}
 		return authorityList;
 	}
-	
-}
 
+}
 

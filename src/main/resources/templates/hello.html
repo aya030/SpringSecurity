@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
 	<title>Hello World!</title>
@@ -12,9 +12,8 @@
 	<form th:action="@{/logout}" method="post">
 		<input type="submit" value="Sign Out" />
 	</form>
-	<div sec:authorize="hasRole('ADMIN')">
-		<a th:href="@{/admin}">管理者ページへ</a>
-	</div>
+
+	<a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
 </body>
 
 </html>
