@@ -150,6 +150,19 @@ a {
 	font-size: 12px;
 	color: red;
 }
+.p-login__input-radio {
+	display: flex;
+}
+.p-login__input-radio input{
+	display: block;
+	width: 30px;
+	margin: 10px 10px 0 0;
+}
+.p-login__input-radio label {
+	display: block;
+	margin: 10px 0 0 0;
+	line-height: 25px;
+}
 
 /*---------------------------------
 

@@ -35,8 +35,12 @@
 						<span th:errors="*{password}"></span>
 					</div>
 					<div class="p-login__input">
-						<label>Authority</label><input type="text" name="roles" th:field="*{roles}" />
-						<span th:errors="*{roles}"></span>
+						<label for="roles">Authority</label>
+						<div class="p-login__input-radio" th:each="user : ${radioRoles}">
+							<input id="roles" type="radio" th:value="${user.value}" th:field="*{roles}">
+							<label class="p-login__input-radiolabel" th:text="${user.value}"></label>
+						</div>
+						<span class="c-span__error" th:errors="*{roles}"></span>
 					</div>
 					<div><input class="c-button__signin" type="submit" value="Create" /></div>
 				</form>
@@ -47,3 +51,4 @@
 </body>
 
 </html>
+

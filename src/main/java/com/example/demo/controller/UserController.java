@@ -26,6 +26,7 @@ public class UserController {
 	public String index(UserForm userForm, Model model) {
 
 		model.addAttribute("userForm", userForm);
+		model.addAttribute("radioRoles", userService.initRadioRoles());
 		return "register";
 	}
 
@@ -34,6 +35,7 @@ public class UserController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("userForm", userForm);
+			model.addAttribute("radioRoles", userService.initRadioRoles());
 			return "/register";
 		} else {
 			userService.insertOne(userForm);

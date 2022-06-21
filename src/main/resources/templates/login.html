@@ -5,7 +5,8 @@
 <head>
 	<title>Spring Security login</title>
 	<link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&family=Noto+Sans+JP&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 	<div class="l-login">
 		<div class="p-login__box">
 			<div class="p-login__box-left">
-			<p>Hello<br>Welcome</p>
+				<p>Hello<br>Welcome</p>
 			</div>
 			<div class="p-login__box-right">
 				<h2>Log IN</h2>
@@ -27,8 +28,14 @@
 					* ログアウトしました
 				</p>
 				<form th:action="@{/login}" method="post">
-					<div class="p-login__input"><label for="username">Username</label><input type="text" name="username" id="username" placeholder="username" /></div>
-					<div class="p-login__input"><label for="password">Password</label><input type="password" name="password" id="password" placeholder="password"  /></div>
+					<div class="p-login__input">
+						<label for="username">Username</label><input type="text" name="username" id="username"
+							placeholder="username" />
+					</div>
+					<div class="p-login__input">
+						<label for="password">Password</label><input type="password" name="password" id="password"
+							placeholder="password" />
+					</div>
 					<div><input class="c-button__signin" type="submit" value="Sign In" /></div>
 				</form>
 				<a class="c-button__register" th:href="@{/register}">Create an account</a>
@@ -38,4 +45,3 @@
 </body>
 
 </html>
-

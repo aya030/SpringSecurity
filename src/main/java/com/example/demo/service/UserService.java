@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ public class UserService implements UserDetailsService {
 	// 認証
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	
+
 		return userMapper.certificate(username);
 	}
 
@@ -57,4 +59,13 @@ public class UserService implements UserDetailsService {
 		userMapper.deleteOne(id);
 	}
 
+	// ラジオボタン(新規登録・更新)
+	public Map<String, String> initRadioRoles() {
+		Map<String, String> radio = new LinkedHashMap<>();
+		radio.put("0", "ADMIN");
+		radio.put("1", "USER");
+		return radio;
+	}
+
 }
+
