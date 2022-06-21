@@ -21,6 +21,8 @@
 		<p class="p-hello__description">ADMIN権限を持っているUSERのみ表示されます</p>
 		<a class="c-button__hello" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
 	</div>
+	
+	<a class="c-button__back" th:href="@{/}">Back to Top</a>
 </body>
 
 </html>

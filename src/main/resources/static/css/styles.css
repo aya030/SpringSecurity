@@ -235,4 +235,12 @@ a {
 	color: #fff;
 	background-color: #2196f3;
 }
-
+.c-button__back {
+	display: block;
+	text-align: center;
+	color: #2196f3;
+	opacity: 0.8;
+}
+.c-button__back:hover {
+	opacity: 1;
+}
