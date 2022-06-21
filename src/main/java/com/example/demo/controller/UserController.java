@@ -22,14 +22,14 @@ public class UserController {
 	}
 
 	/* Top */
-	@GetMapping("/edit")
+	@GetMapping("/register")
 	public String index(UserForm userForm, Model model) {
 
 		model.addAttribute("userForm", userForm);
-		return "edit";
+		return "register";
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/register")
 	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
 
 		userService.insertOne(userForm);

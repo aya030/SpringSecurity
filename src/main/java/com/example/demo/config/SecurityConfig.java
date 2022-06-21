@@ -30,7 +30,7 @@ public class SecurityConfig {
 			.authorizeHttpRequests(authorize -> authorize
 		    	.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 		    	.mvcMatchers("/").permitAll()
-		    	.mvcMatchers("/edit").permitAll()
+		    	.mvcMatchers("/register").permitAll()
 		    	.mvcMatchers("/admin").hasAuthority("ROLE_ADMIN")
 		    	.anyRequest().authenticated());
 		return http.build();
