@@ -13,6 +13,9 @@ h1,h2,p {
 	font-weight: 400;
 	font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
 }
+a {
+    text-decoration: none;
+}
 
 /*---------------------------------
 
@@ -28,7 +31,10 @@ h1,h2,p {
 	background-color: #2196f3;
 	color: #fff;
 }
-.p-header__menu:hover {
+.p-header__menu a {
+	color: #fff;
+}
+.p-header__menu a:hover {
 	color: #0D4751;
 }
 
@@ -143,7 +149,6 @@ h1,h2,p {
 	text-align: right;
 	margin-top: 20px;
 	color: #2196f3;
-	text-decoration: none;
 	font-size: 14px;
 	opacity: 0.8;
 }
