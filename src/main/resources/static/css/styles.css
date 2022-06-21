@@ -241,6 +241,19 @@ a {
 
 /*---------------------------------
 
+  403.html,404.html
+
+---------------------------------*/
+.l-error h2 {
+	margin: 60px 0 20px 10%;
+	font-size: 20px;
+}
+.l-error p {
+	margin: 0px 0 20px 10%;
+}
+
+/*---------------------------------
+
   button
 
 ---------------------------------*/
@@ -253,9 +266,6 @@ a {
 	padding: 10px 20px;
 	opacity: 0.8;
 }
-.c-button__signin:hover {
-	opacity: 1;
-}
 .c-button__register {
 	display: block;
 	text-align: right;
@@ -263,9 +273,6 @@ a {
 	color: #2196f3;
 	font-size: 14px;
 	opacity: 0.8;
-}
-.c-button__register:hover {
-	opacity: 1;
 }
 .c-button__page {
 	color: #fff;
@@ -275,9 +282,6 @@ a {
 	width: 100%;
 	padding: 10px 20px;
 	opacity: 0.8;
-}
-.c-button__page:hover {
-	opacity: 1;
 }
 .c-button__hello {
 	display: block;
@@ -300,18 +304,12 @@ a {
 	color: #2196f3;
 	opacity: 0.8;
 }
-.c-button__back:hover {
-	opacity: 1;
-}
 .c-button__user {
 	display: block;
 	padding-right: 10%;
 	text-align: right;
 	color: #2196f3;
 	opacity: 0.8;
-}
-.c-button__user:hover {
-    opacity: 1;
 }
 .c-button__delete {
 	border: none;
@@ -321,4 +319,19 @@ a {
 }
 .c-button__delete:hover {
 	color: #2196f3;
+}
+.c-button__error {
+	text-align: left;
+	padding-left: 10%;
+	color: #2196f3;
+	opacity: 0.8;
+}
+.c-button__signin:hover,
+.c-button__register:hover,
+.c-button__back:hover,
+.c-button__user:hover,
+.c-button__page:hover,
+.c-button__error:hover
+ {
+	opacity: 1;
 }

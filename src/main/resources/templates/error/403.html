@@ -8,12 +8,18 @@
 </head>
 
 <body>
-
-	<div>403 Access Denied</div>
-	<p>アクセス拒否</p>
-	<a th:href="@{/hello}">Home</a>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-error">
+		<h2>403 Access Denied</h2>
+		<p>アクセス拒否</p>
+		<a class="c-button__error" th:href="@{/hello}">Home</a>
+	</div>
 
 </body>
 
 </html>
-
