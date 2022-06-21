@@ -8,15 +8,19 @@
 </head>
 
 <body>
-	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-hello">
+		<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Sign Out" />
-	</form>
-
-	<a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/user}">ユーザー一覧ページへ</a>
-	<a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
+		<a class="c-button__hello" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/user}">ユーザー一覧ページへ</a>
+		<p class="p-hello__description">ADMIN権限を持っているUSERのみ表示されます</p>
+		<a class="c-button__hello" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
+	</div>
 </body>
 
 </html>
-

@@ -163,6 +163,25 @@ a {
 
 /*---------------------------------
 
+  hello.html
+
+---------------------------------*/
+.l-hello {
+	margin-top: 60px;
+	text-align: center;
+}
+.l-hello h1 {
+	font-size: 24px;
+	margin-bottom: 40px;
+	line-height: 1.5;
+}
+.p-hello__description {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+/*---------------------------------
+
   button
 
 ---------------------------------*/
@@ -200,5 +219,20 @@ a {
 }
 .c-button__page:hover {
 	opacity: 1;
+}
+.c-button__hello {
+	display: block;
+	width: 250px;
+	margin: 0 auto 40px;
+	color: #333;
+	border: 1px solid #2196f3;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(33, 150, 243, .16);
+	padding: 10px 20px;
+	opacity: 0.8;
+}
+.c-button__hello:hover {
+	color: #fff;
+	background-color: #2196f3;
 }
 
