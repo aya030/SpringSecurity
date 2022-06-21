@@ -28,14 +28,24 @@ a {
 	align-items: center;
 	margin: 0 auto;
 	padding: 10px 10%;
-	background-color: #2196f3;
 	color: #fff;
+	background-color: #2196f3;
 }
 .p-header__menu a {
 	color: #fff;
 }
 .p-header__menu a:hover {
 	color: #0D4751;
+}
+.p-header__logout input{
+	color: #fff;
+	font-size: 16px;
+}
+.p-header__logout input{
+	color: #fff;
+	background-color: #2196f3;
+	border: 0;
+	font-size: 16px;
 }
 
 /*---------------------------------

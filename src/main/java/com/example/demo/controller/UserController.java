@@ -21,7 +21,7 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	/* Top */
+	/* ユーザー登録ページ */
 	@GetMapping("/register")
 	public String index(UserForm userForm, Model model) {
 
