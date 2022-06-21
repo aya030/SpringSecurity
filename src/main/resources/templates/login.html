@@ -5,23 +5,36 @@
 <head>
 	<title>Spring Security login</title>
 	<link href="/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	　　 <h1>Sign In</h1>
-	<div th:if="${param.error}">
-		usernameかpasswordが間違っています
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<p class="p-header__menu">Login</p>
+	</header>
+	<div class="l-login">
+		<div class="p-login__box">
+			<div class="p-login__box-left">
+			<p>Hello<br>Welcome</p>
+			</div>
+			<div class="p-login__box-right">
+				<h2>Log IN</h2>
+				<p class="p-login__message" th:if="${param.error}">
+					* Wrong username or password
+				</p>
+				<p class="p-login__message" th:if="${param.logout}">
+					* ログアウトしました
+				</p>
+				<form th:action="@{/login}" method="post">
+					<div class="p-login__input"><label for="username">Username</label><input type="text" name="username" id="username" placeholder="username" /></div>
+					<div class="p-login__input"><label for="password">Password</label><input type="password" name="password" id="password" placeholder="password"  /></div>
+					<div><input class="c-button__signin" type="submit" value="Sign In" /></div>
+				</form>
+				<a class="c-button__register" th:href="@{/register}">Create an account</a>
+			</div>
+		</div>
 	</div>
-	<div th:if="${param.logout}">
-		ログアウトしました
-	</div>
-	<form th:action="@{/login}" method="post">
-		<div><label> User Name : <input type="text" name="username" /> </label></div>
-		<div><label> Password: <input type="password" name="password" /> </label></div>
-		<div><input type="submit" value="Sign In" /></div>
-	</form>
-	<a th:href="@{/edit}">新規登録</a>
 </body>
 
 </html>
-
