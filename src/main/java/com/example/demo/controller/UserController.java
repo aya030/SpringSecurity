@@ -35,6 +35,15 @@ public class UserController {
 		return "redirect:/index";
 	}
 
+	/* ユーザー一覧ページ */
+	@GetMapping("/user")
+	public String user(UserForm userForm, Model model) {
+
+		model.addAttribute("userList", userService.getUserList());
+		return "user";
+	}
+
+	/* ADMIN専用ユーザー一覧ページ */
 	@GetMapping("/admin")
 	public String admin(UserForm userForm, Model model) {
 

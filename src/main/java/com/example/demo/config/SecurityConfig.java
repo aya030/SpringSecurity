@@ -28,8 +28,9 @@ public class SecurityConfig {
 			.logout(logout -> logout
 		    	.logoutSuccessUrl("/"))
 			.authorizeHttpRequests(authorize -> authorize
-		    	.requestMatchers(PathRequest.toStaticResources().atCommonLocations()) 
-		    	.permitAll().mvcMatchers("/").permitAll().mvcMatchers("/edit").permitAll()
+		    	.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+		    	.mvcMatchers("/").permitAll()
+		    	.mvcMatchers("/edit").permitAll()
 		    	.mvcMatchers("/admin").hasAuthority("ROLE_ADMIN")
 		    	.anyRequest().authenticated());
 		return http.build();
@@ -50,3 +51,4 @@ public class SecurityConfig {
 //		return manager;
 //	}
 }
+
