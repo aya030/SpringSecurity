@@ -1,0 +1,14 @@
+	<div th:if="${userList} !=null">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>ユーザー名</th>
+			</tr>
+			<tr th:each="user:${userList}" th:object="${user}">
+				<td th:text="*{id}">id</td>
+				<td th:text="*{username}">ユーザー名</td>
+			</tr>
+		</table>
+		
+		<a th:href="@{/hello}">Home</a>
+	</div>

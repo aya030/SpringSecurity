@@ -14,6 +14,7 @@ public class UserModel implements UserDetails {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Integer id;
 	private String username;
 	private String password;
 	private String roles;
@@ -74,6 +75,14 @@ public class UserModel implements UserDetails {
 			authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
 		}
 		return authorityList;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

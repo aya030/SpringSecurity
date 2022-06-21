@@ -4,6 +4,7 @@
 
 <head>
 	<title>Hello World!</title>
+	<link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -13,7 +14,9 @@
 		<input type="submit" value="Sign Out" />
 	</form>
 
+	<a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/user}">ユーザー一覧ページへ</a>
 	<a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/admin}">管理者ページへ</a>
 </body>
 
 </html>
+
