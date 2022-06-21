@@ -25,7 +25,7 @@
 				<p class="p-login__message" th:if="${param.logout}">
 					* ログアウトしました
 				</p>
-				<form th:action="@{/edit}" method="post" th:object=${userForm}>
+				<form th:action="@{/register}" method="post" th:object=${userForm}>
 					<div class="p-login__input"><label>User Name</label><input type="text" name="username" th:field="*{username}" /></div>
 					<div class="p-login__input"><label>Password</label><input type="password" name="password" th:field="*{password}" /></div>
 					<div class="p-login__input"><label>Authority</label><input type="text" name="roles" th:field="*{roles}" /></div>
