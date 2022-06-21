@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.UserForm;
@@ -49,6 +50,13 @@ public class UserController {
 
 		model.addAttribute("userList", userService.getUserList());
 		return "admin";
+	}
+	
+	/* 削除 */
+	@PostMapping("/delete/id={id}")
+	public String delete(@PathVariable("id") int id) {
+		userService.deleteOne(id);
+		return "redirect:/admin";
 	}
 
 }
