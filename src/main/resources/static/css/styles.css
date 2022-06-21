@@ -204,6 +204,40 @@ a {
 .p-user__table td:first-child{
 	border-right: 1px solid #333;
 }
+/*---------------------------------
+
+  admin.html
+
+---------------------------------*/
+.l-admin h2 {
+	font-size: 20px;
+	margin: 60px 0 10px 10%;
+}
+.l-admin p {
+	margin: 0px 0 60px 10%;
+}
+.l-admin__list {
+	width: 80%;
+	margin: 0 auto;
+	overflow-x: scroll;
+}
+.l-admin__list table {
+	border-collapse: collapse;
+	margin-bottom: 40px;
+	
+}
+.l-admin__list th,
+.l-admin__list td {
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #333;
+	padding: 0 10px;
+	font-size: 12px;
+	height: 40px;
+}
+.l-admin__list th:last-child,
+.l-admin__list td:last-child {
+	border-right: none;
+}
 
 /*---------------------------------
 
@@ -278,4 +312,13 @@ a {
 }
 .c-button__user:hover {
     opacity: 1;
+}
+.c-button__delete {
+	border: none;
+	color: #333;
+	background-color: #fff;
+	border-bottom: 1px solid #333;
+}
+.c-button__delete:hover {
+	color: #2196f3;
 }
