@@ -1,5 +1,21 @@
-	<div th:if="${userList} !=null">
-		<table>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Hello World!</title>
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<header class="l-header">
+		<h1 class="p-header__logo">SpringSecurityPractice</h1>
+		<form class="p-header__logout" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</header>
+	<div class="l-user" th:if="${userList} !=null">
+		<table class="p-user__table">
 			<tr>
 				<th>ID</th>
 				<th>ユーザー名</th>
@@ -9,6 +25,9 @@
 				<td th:text="*{username}">ユーザー名</td>
 			</tr>
 		</table>
-		
-		<a th:href="@{/hello}">Home</a>
+
+		<a class="c-button__user" th:href="@{/hello}">Home</a>
 	</div>
+</body>
+
+</html>
