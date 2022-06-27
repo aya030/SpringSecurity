@@ -26,14 +26,21 @@ public class UserController {
 	public String index(UserForm userForm, Model model) {
 
 		model.addAttribute("userForm", userForm);
+		model.addAttribute("radioRoles", userService.initRadioRoles());
 		return "register";
 	}
 
 	@PostMapping("/register")
 	public String create(Model model, @Validated @ModelAttribute UserForm userForm, BindingResult result) {
 
-		userService.insertOne(userForm);
-		return "redirect:/index";
+		if (result.hasErrors()) {
+			model.addAttribute("userForm", userForm);
+			model.addAttribute("radioRoles", userService.initRadioRoles());
+			return "/register";
+		} else {
+			userService.insertOne(userForm);
+			return "redirect:/login";
+		}
 	}
 
 	/* ユーザー一覧ページ */
